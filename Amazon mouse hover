@@ -1,0 +1,21 @@
+package com.gaurav.Automation;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+public class MouseDemo {
+	public static void main(String[] args) {	
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.navigate().to("https://www.amazon.in/");	
+		//1.
+		WebElement accountList = driver.findElement(By.xpath("//span[text()='Account & Lists']"));		
+		WebElement yourAccount = driver.findElement(By.xpath("//span[text()='Your Account']"));		
+		//2.		
+		Actions a = new Actions(driver);		
+		//3.//4.
+		a.moveToElement(accountList).build().perform();		
+		a.moveToElement(yourAccount).click().build().perform();
+	}
+}
